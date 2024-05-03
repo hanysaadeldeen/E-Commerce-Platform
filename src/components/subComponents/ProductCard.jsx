@@ -1,17 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ProductCardWishLIst from "../../Hook/wishLish/ProductCardWishLIst";
 
 /* eslint-disable react/prop-types */
 const ProductCard = ({ item, wishLish }) => {
 
+    const url = useLocation();
+    const segments = url.pathname.split('/');
+    const title = segments[1]
+    let baseUrl = ""
+    if (title === "FavoritePage") {
+        baseUrl = "https://backend-for-ecommerce-plateform2.onrender.com/products/"
+    } else {
+        baseUrl = ""
+    }
 
     const [favType, handelFav] = ProductCardWishLIst(item._id, wishLish)
 
     return (
         <div className="relative mb-5 max-md:mb-3  pb-2 ">
-
             <Link to={`/Product/${item._id}`} className="" >
-                <img src={item.imageCover} className="max-h-[430px] " alt={item.title} />
+                <img src={`${baseUrl}${item.imageCover}`} className="max-h-[430px] " alt={item.title} />
             </Link>
 
             <Link to={`/Product/${item._id}`} >

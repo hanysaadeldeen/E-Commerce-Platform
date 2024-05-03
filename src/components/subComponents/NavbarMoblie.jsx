@@ -18,6 +18,7 @@ const NavbarMoblie = () => {
     const title = segments[1]
     const title2 = segments[2]
 
+    console.log(title);
     const removeUser = async () => {
         localStorage.removeItem("user")
         localStorage.removeItem("token")
@@ -45,7 +46,8 @@ const NavbarMoblie = () => {
                     {/* category */}
                     <div className=' relative flex hover:scale-105 duration-100 ease-in-out'>
                         <Link to="/Category"
-                            onClick={() => setShowDropDown(!showDropDown)}
+                            onClick={() => setShowDropDown(false)}
+
                         >
                             <img src="/src/assets/image/menu.png" className="w-[22px]" alt="" />
                             {
@@ -58,7 +60,8 @@ const NavbarMoblie = () => {
                     <div className='relative flex  hover:scale-105 duration-100 ease-in-out'>
                         {!isLoaing && AllCart.length !== 0 ?
                             <Link to="/CartPage"
-                                onClick={() => setShowDropDown(!showDropDown)}
+                                onClick={() => setShowDropDown(false)}
+
                             >
                                 <img src="/src/assets/image/shopping-cart.png" alt="" className='w-[24px]' />
                                 <span className="absolute -top-3 text-center -right-3 w-6 h-6 rounded-full text-white font-bold bg-red-500">{AllCart.numOfCartItems}</span>
@@ -68,7 +71,8 @@ const NavbarMoblie = () => {
                                 }
                             </Link> :
                             <Link to="/CartPage"
-                                onClick={() => setShowDropDown(!showDropDown)}
+                                onClick={() => setShowDropDown(false)}
+
                             >
                                 <img src="/src/assets/image/shopping-cart.png" alt="" className='w-[24px]' />
                                 {
@@ -80,7 +84,8 @@ const NavbarMoblie = () => {
                     {/* favorite */}
                     <div className='relative flex  hover:scale-105 duration-100 ease-in-out'>
                         <Link to="/FavoritePage"
-                            onClick={() => setShowDropDown(!showDropDown)}
+                            onClick={() => setShowDropDown(false)}
+
                         >
                             <img src="/src/assets/image/fav-off.png" alt="" className='w-[30px]' />
                             {

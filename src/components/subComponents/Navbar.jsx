@@ -28,9 +28,6 @@ export default function Navbar() {
 
 
 
-
-
-
   const SearchFun = () => {
     setSearch(!search)
     if (window.location.pathname !== "/ShopProductPage" &&
@@ -53,6 +50,7 @@ export default function Navbar() {
   const segments = url.pathname.split('/');
   const title = segments[1]
   const title2 = segments[2]
+
   return (
     <div className="navbar relative">
 
@@ -85,8 +83,7 @@ export default function Navbar() {
             <ul className="flex  text-lg capitalize max-md:hidden ">
               {/* home page */}
               <Link to="/"
-                onClick={() => setShowDropDown(!showDropDown)}
-
+                onClick={() => setShowDropDown(false)}
               >
                 <li className={"  hover:bg-slate-100 cursor-pointer transition  duration-300 ease-in-out   p-4 " +
                   (title === "" && "bg-slate-100")} >
@@ -94,7 +91,8 @@ export default function Navbar() {
               </Link>
               {/* category page */}
               <Link to="/Category"
-                onClick={() => setShowDropDown(!showDropDown)}
+                onClick={() => setShowDropDown(false)}
+
 
               >
                 <li className={" hover:bg-slate-100 cursor-pointer transition  duration-300 ease-in-out   p-4 " +
@@ -102,7 +100,8 @@ export default function Navbar() {
                   category</li>
               </Link>
               <Link to="/FavoritePage"
-                onClick={() => setShowDropDown(!showDropDown)}
+                onClick={() => setShowDropDown(false)}
+
 
               >
                 <li className={" hover:bg-slate-100 cursor-pointer transition  duration-300 ease-in-out   p-4 " +
@@ -188,13 +187,15 @@ export default function Navbar() {
 
               {!isLoaing && AllCart.length !== 0 ?
                 <Link to="/CartPage" className='relative mt-1 max-md:hidden'
-                  onClick={() => setShowDropDown(!showDropDown)}
+                  onClick={() => setShowDropDown(false)}
+
                 >
                   <img src="/src/assets/image/shopping-cart.png" className='w-[25px] cursor-pointer' alt="" />
                   <span className="absolute -top-3 text-center -right-3 w-6 h-6 rounded-full text-white font-bold bg-red-500">{AllCart.numOfCartItems}</span>
                 </Link> :
                 <Link to="/CartPage" className='relative mt-1 max-md:hidden'
-                  onClick={() => setShowDropDown(!showDropDown)}
+                  onClick={() => setShowDropDown(false)}
+
                 >
                   <img src="/src/assets/image/shopping-cart.png" className='w-[25px] cursor-pointer' alt="" />
                 </Link>
