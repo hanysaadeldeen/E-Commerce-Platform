@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Searchhook from "../../Hook/Searchhook";
 import GetUserProductCart from "../../Hook/Cart/GetUserProductCart";
 
-
+import logo from "../../assets/image/logo.png"
 
 export default function Navbar() {
   const [search, setSearch] = useState(false)
@@ -78,7 +78,7 @@ export default function Navbar() {
             <Link to="/" className=' max-md:p-2' >
               <img
                 onClick={() => setShowDropDown(false)}
-                src="/src/assets/image/logo.png" alt="Logo" className="" />
+                src={logo} alt="Logo" className="" />
             </Link>
             <ul className="flex  text-lg capitalize max-md:hidden ">
               {/* home page */}
