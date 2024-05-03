@@ -1,4 +1,4 @@
-import ProductInfo from "../components/Products/productInfo"
+// import ProductInfo from "../components/Products/productInfo"
 import ProductReview from "../components/Products/ProductReview"
 import { useParams } from "react-router-dom"
 import ProductDescription from "../components/Products/ProductDescription"
@@ -6,6 +6,7 @@ import ProductSliderImage from "../components/Products/ProductSliderImage"
 import ProductDeatilshook from "../Hook/ProductDeatils/ProductDeatilshook"
 import { SpinnerDiamond } from "spinners-react"
 import SliderForRecommend from "../components/subComponents/SliderForRecommend"
+import ProductInfo from "../components/Products/ProductInfo"
 const ProductPage = () => {
 
 
