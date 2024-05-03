@@ -4,10 +4,10 @@ import AdminSidePare from "./AdminSidePare"
 import { GithubPicker } from 'react-color'
 import { ToastContainer } from "react-toastify";
 import Multiselect from "multiselect-react-dropdown";
-import ImageUploader from 'react-images-upload';
 import AdminEditProducthook from "../../Hook/admin/AdminEditproducthook";
 import { useParams } from "react-router-dom";
 
+// import ImageUploader from 'react-images-upload';
 const AdminEditProductPage = () => {
 
 
@@ -28,7 +28,7 @@ const AdminEditProductPage = () => {
         allCategroy, SubCatoegory, allBrand
         , setchoosenBrand, onRemove, onSelect, GetProductColors,
         ChoosenColor, setShowColorPicker, ShowColorPicker, remoreColor,
-        setProductQuantity, onDrop, editedProduct,
+        setProductQuantity, editedProduct,
 
         productName, description, quantity, productPriceBefore,
         productPriceAfter, choosenCat, setChoosenCat, choosenBrand
@@ -60,7 +60,7 @@ const AdminEditProductPage = () => {
 
 
                                 <h1 className="max-lg:hidden mt-6 text-xl font-semibold">Add new image</h1>
-                                <div className="w-3/5  max-lg:w-full">
+                                {/* <div className="w-3/5  max-lg:w-full">
                                     <ImageUploader
                                         withIcon={true}
                                         buttonText="Choose images"
@@ -69,7 +69,7 @@ const AdminEditProductPage = () => {
                                         maxFileSize={10000000}
                                         withPreview={true}
                                     />
-                                </div>
+                                </div> */}
 
                                 <div className="inputs child:my-2 w-3/5 max-lg:w-full">
                                     <input type="text" name="" id="" placeholder="Prouct Name"

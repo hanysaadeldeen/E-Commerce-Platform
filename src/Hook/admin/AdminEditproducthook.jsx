@@ -156,9 +156,9 @@ const AdminEditProducthook = (id) => {
     };
 
     // for images 
-    const onDrop = (pictureFiles) => {
-        setImages(pictureFiles);
-    };
+    // const onDrop = (pictureFiles) => {
+    //     setImages(pictureFiles);
+    // };
 
     // select colors and handel It Select and Remove
     const GetProductColors = (e) => {
@@ -255,7 +255,7 @@ const AdminEditProducthook = (id) => {
         allCategroy, SubCatoegory, allBrand
         , setchoosenBrand, onRemove, onSelect, GetProductColors,
         ChoosenColor, setShowColorPicker, ShowColorPicker, remoreColor,
-        setProductQuantity, onDrop, editedProduct,
+        setProductQuantity, editedProduct,
 
         productName, description, quantity, productPriceBefore,
         productPriceAfter, choosenCat, setChoosenCat, choosenBrand

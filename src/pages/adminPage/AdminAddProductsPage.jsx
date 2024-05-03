@@ -5,7 +5,7 @@ import { GithubPicker } from 'react-color'
 import { ToastContainer } from "react-toastify";
 import AdminAddProducthook from "../../Hook/admin/AdminAddProducthook";
 import Multiselect from "multiselect-react-dropdown";
-import ImageUploader from 'react-images-upload';
+// import ImageUploader from 'react-images-upload';
 
 const AdminAddProductsPage = () => {
 
@@ -27,7 +27,7 @@ const AdminAddProductsPage = () => {
         allCategroy, SubCatoegory, allBrand
         , setchoosenBrand, onRemove, onSelect, GetProductColors,
         ChoosenColor, setShowColorPicker, ShowColorPicker, getMainCategory, remoreColor,
-        setProductQuantity, onDrop,
+        setProductQuantity,
         productName, description, quantity, productPriceAfter, productPriceBefore
 
     ] = AdminAddProducthook()
@@ -45,7 +45,7 @@ const AdminAddProductsPage = () => {
 
                             {/* <img src="/src/assets/image/avatar.png" className="my-3 w-28 cursor-pointer " alt="upload img" /> */}
 
-                            <div className="w-3/5  max-lg:w-full">
+                            {/* <div className="w-3/5  max-lg:w-full">
                                 <ImageUploader
                                     withIcon={true}
                                     buttonText="Choose images"
@@ -55,7 +55,7 @@ const AdminAddProductsPage = () => {
                                     withPreview={true}
 
                                 />
-                            </div>
+                            </div> */}
 
                             <div className="inputs child:my-2 w-3/5 max-lg:w-full">
                                 <input type="text" name="" id="" placeholder="Prouct Name"
