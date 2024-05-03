@@ -84,18 +84,27 @@ export default function Navbar() {
             </Link>
             <ul className="flex  text-lg capitalize max-md:hidden ">
               {/* home page */}
-              <Link to="/" >
+              <Link to="/"
+                onClick={() => setShowDropDown(!showDropDown)}
+
+              >
                 <li className={"  hover:bg-slate-100 cursor-pointer transition  duration-300 ease-in-out   p-4 " +
                   (title === "" && "bg-slate-100")} >
                   home</li>
               </Link>
               {/* category page */}
-              <Link to="/Category">
+              <Link to="/Category"
+                onClick={() => setShowDropDown(!showDropDown)}
+
+              >
                 <li className={" hover:bg-slate-100 cursor-pointer transition  duration-300 ease-in-out   p-4 " +
                   (title === "Category" && "bg-slate-100")}>
                   category</li>
               </Link>
-              <Link to="/FavoritePage" >
+              <Link to="/FavoritePage"
+                onClick={() => setShowDropDown(!showDropDown)}
+
+              >
                 <li className={" hover:bg-slate-100 cursor-pointer transition  duration-300 ease-in-out   p-4 " +
                   (title === "FavoritePage" && "bg-slate-100")}>
                   favorite</li>
@@ -178,11 +187,15 @@ export default function Navbar() {
                 className='w-[22px] mr-2 md:mt-1 cursor-pointer' alt="" />
 
               {!isLoaing && AllCart.length !== 0 ?
-                <Link to="/CartPage" className='relative mt-1 max-md:hidden'>
+                <Link to="/CartPage" className='relative mt-1 max-md:hidden'
+                  onClick={() => setShowDropDown(!showDropDown)}
+                >
                   <img src="/src/assets/image/shopping-cart.png" className='w-[25px] cursor-pointer' alt="" />
                   <span className="absolute -top-3 text-center -right-3 w-6 h-6 rounded-full text-white font-bold bg-red-500">{AllCart.numOfCartItems}</span>
                 </Link> :
-                <Link to="/CartPage" className='relative mt-1 max-md:hidden'>
+                <Link to="/CartPage" className='relative mt-1 max-md:hidden'
+                  onClick={() => setShowDropDown(!showDropDown)}
+                >
                   <img src="/src/assets/image/shopping-cart.png" className='w-[25px] cursor-pointer' alt="" />
                 </Link>
               }

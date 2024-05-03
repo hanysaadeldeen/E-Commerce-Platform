@@ -32,7 +32,9 @@ const NavbarMoblie = () => {
                     {/* home page */}
                     <div className=' relative flex  hover:scale-105 duration-100 ease-in-out'
                         onClick={() => setShowDropDown(false)}>
-                        <Link to="/">
+                        <Link to="/"
+                            onClick={() => setShowDropDown(!showDropDown)}
+                        >
                             <img src="/src/assets/image/house.png" className="w-[22px] " alt="" />
                             {
                                 title === "" &&
@@ -42,7 +44,9 @@ const NavbarMoblie = () => {
                     </div>
                     {/* category */}
                     <div className=' relative flex hover:scale-105 duration-100 ease-in-out'>
-                        <Link to="/Category">
+                        <Link to="/Category"
+                            onClick={() => setShowDropDown(!showDropDown)}
+                        >
                             <img src="/src/assets/image/menu.png" className="w-[22px]" alt="" />
                             {
                                 title === "Category" &&
@@ -53,7 +57,9 @@ const NavbarMoblie = () => {
                     {/* cart */}
                     <div className='relative flex  hover:scale-105 duration-100 ease-in-out'>
                         {!isLoaing && AllCart.length !== 0 ?
-                            <Link to="/CartPage">
+                            <Link to="/CartPage"
+                                onClick={() => setShowDropDown(!showDropDown)}
+                            >
                                 <img src="/src/assets/image/shopping-cart.png" alt="" className='w-[24px]' />
                                 <span className="absolute -top-3 text-center -right-3 w-6 h-6 rounded-full text-white font-bold bg-red-500">{AllCart.numOfCartItems}</span>
                                 {
@@ -61,7 +67,9 @@ const NavbarMoblie = () => {
                                     <span className='absolute w-1.5 h-1.5 rounded-full bg-red-600 left-1/2 translate-x-[-50%] -bottom-[12px]'></span>
                                 }
                             </Link> :
-                            <Link to="/CartPage">
+                            <Link to="/CartPage"
+                                onClick={() => setShowDropDown(!showDropDown)}
+                            >
                                 <img src="/src/assets/image/shopping-cart.png" alt="" className='w-[24px]' />
                                 {
                                     title === "CartPage" &&
@@ -71,7 +79,9 @@ const NavbarMoblie = () => {
                     </div>
                     {/* favorite */}
                     <div className='relative flex  hover:scale-105 duration-100 ease-in-out'>
-                        <Link to="/FavoritePage">
+                        <Link to="/FavoritePage"
+                            onClick={() => setShowDropDown(!showDropDown)}
+                        >
                             <img src="/src/assets/image/fav-off.png" alt="" className='w-[30px]' />
                             {
                                 title === "FavoritePage" &&
