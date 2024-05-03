@@ -17,15 +17,11 @@ const NavbarMoblie = () => {
     const segments = url.pathname.split('/');
     const title = segments[1]
     const title2 = segments[2]
-
-    console.log(title);
     const removeUser = async () => {
         localStorage.removeItem("user")
         localStorage.removeItem("token")
         setShowDropDown(false)
     }
-
-
     return (
         <div className='border-t-2 bg-white border-slate-100  md:hidden  bottom-0   w-full z-30 fixed'>
             <div className='container '>
