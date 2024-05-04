@@ -34,12 +34,11 @@ const ProductCard = ({ item, wishLish }) => {
                     }
                 </div>
             </Link>
-
-            <div className="absolute right-3 bottom-7">
+            <div className="absolute left-3 top-2">
                 <img
                     src={favType}
                     alt="one"
-                    className='p-1 h-10 w-10  bg-red cursor-pointer  '
+                    className='p-1 h-10 w-10  bg-red cursor-pointer  rounded-full bg-[#dcdcdc] '
                     onClick={() => handelFav()} />
             </div>
         </div>

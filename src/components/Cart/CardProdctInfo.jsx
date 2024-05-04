@@ -2,11 +2,13 @@
 
 const CardProdctInfo = ({ info }) => {
 
+    let baseUrl = "https://backend-for-ecommerce-plateform2.onrender.com/products/"
+
     return (
         <div className=" my-4 border-b  border-[#d9d9d9] pb-2 px-1   flex items-center  ">
             <div className="relative img_section w-fit mr-3">
                 <div className="w-16 h-16 overflow-hidden">
-                    <img src={info.product.imageCover} alt="" />
+                    <img src={`${baseUrl}${info.product.imageCover}`} alt="" />
                 </div>
                 <span className="absolute -top-3 bg-red left-14 bg-[#7c7c7c] w-5 h-5 text-xs rounded-full  text-center leading-5 text-white ">{info.count}</span>
             </div>

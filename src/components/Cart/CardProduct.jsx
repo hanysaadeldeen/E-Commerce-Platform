@@ -11,9 +11,6 @@ const CardProduct = ({ DeleteOneProduct, product, UpdateCartQuantity }) => {
 
     let qtantity = product.count
 
-    // const [qtantity, setQtantity] = useState(product.count)
-
-
 
     const updateQuantityINc = () => {
         updateqtn(qtantity + 1)
@@ -28,11 +25,19 @@ const CardProduct = ({ DeleteOneProduct, product, UpdateCartQuantity }) => {
     const updateqtn = (qtn) => {
         UpdateCartQuantity(product._id, { count: qtn })
     }
+
+    let baseUrl = "https://backend-for-ecommerce-plateform2.onrender.com/products/"
+
     return (
         <div className=" mt-6 flex  ">
-            <div className="w-20 mr-6">
-                <img src={product && product.product.imageCover} className=" rounded-sm" alt="" />
-            </div>
+            {
+                product && product.product &&
+                <div className="w-20 mr-6">
+                    <img src={`${baseUrl}${product.product.imageCover}`} className=" rounded-sm" alt="" />
+                </div>
+            }
+
+
             <div className="flex flex-1 max-md:flex-col max-md:text-left text-right">
                 <div className="desc grow  text-left mr-6">
 

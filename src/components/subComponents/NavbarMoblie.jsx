@@ -5,6 +5,10 @@ import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { Link, useLocation } from 'react-router-dom'
 import GetUserProductCart from '../../Hook/Cart/GetUserProductCart'
 import { useState } from 'react'
+import house from "../../assets/image/house.png"
+import category from "../../assets/image/menu.png"
+import cart from "../../assets/image/shopping-cart.png"
+import favorite from "../../assets/image/fav-off.png"
 
 const NavbarMoblie = () => {
 
@@ -32,7 +36,7 @@ const NavbarMoblie = () => {
                         <Link to="/"
                             onClick={() => setShowDropDown(!showDropDown)}
                         >
-                            <img src="/src/assets/image/house.png" className="w-[22px] " alt="" />
+                            <img src={house} className="w-[22px] " alt="" />
                             {
                                 title === "" &&
                                 <span className='absolute w-1.5 h-1.5 rounded-full bg-red-600 left-1/2 translate-x-[-50%] -bottom-[11px]'></span>
@@ -45,7 +49,7 @@ const NavbarMoblie = () => {
                             onClick={() => setShowDropDown(false)}
 
                         >
-                            <img src="/src/assets/image/menu.png" className="w-[22px]" alt="" />
+                            <img src={category} className="w-[22px]" alt="" />
                             {
                                 title === "Category" &&
                                 <span className='absolute w-1.5 h-1.5 rounded-full bg-red-600 left-1/2 translate-x-[-50%] -bottom-[11px]'></span>
@@ -59,7 +63,7 @@ const NavbarMoblie = () => {
                                 onClick={() => setShowDropDown(false)}
 
                             >
-                                <img src="/src/assets/image/shopping-cart.png" alt="" className='w-[24px]' />
+                                <img src={cart} alt="" className='w-[24px]' />
                                 <span className="absolute -top-3 text-center -right-3 w-6 h-6 rounded-full text-white font-bold bg-red-500">{AllCart.numOfCartItems}</span>
                                 {
                                     title === "CartPage" &&
@@ -70,7 +74,7 @@ const NavbarMoblie = () => {
                                 onClick={() => setShowDropDown(false)}
 
                             >
-                                <img src="/src/assets/image/shopping-cart.png" alt="" className='w-[24px]' />
+                                <img src={cart} alt="" className='w-[24px]' />
                                 {
                                     title === "CartPage" &&
                                     <span className='absolute w-1.5 h-1.5 rounded-full bg-red-600 left-1/2 translate-x-[-50%] -bottom-[12px]'></span>
@@ -83,7 +87,7 @@ const NavbarMoblie = () => {
                             onClick={() => setShowDropDown(false)}
 
                         >
-                            <img src="/src/assets/image/fav-off.png" alt="" className='w-[30px]' />
+                            <img src={favorite} alt="" className='w-[30px]' />
                             {
                                 title === "FavoritePage" &&
                                 <span className='absolute w-1.5 h-1.5 rounded-full bg-red-600 left-1/2 translate-x-[-50%] -bottom-[8px]'></span>

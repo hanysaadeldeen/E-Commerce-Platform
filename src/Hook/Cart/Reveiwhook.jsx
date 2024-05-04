@@ -25,7 +25,7 @@ const Reviewhook = (id) => {
     const [reviewShow, serReviewShow] = useState(false)
 
     const { isLoading, AllReviews, error, NewReview } = useSelector((state) => state.Review)
-    const userr = JSON.parse(localStorage.getItem("user")) || []
+    const userr = JSON.parse(localStorage.getItem("user")) || ""
 
 
 
@@ -42,51 +42,55 @@ const Reviewhook = (id) => {
     };
 
 
-
     const AddNewReveiw = async () => {
-        if (userr && userr.role === "user") {
+        if (userr !== "") {
+            if (userr.role === "user") {
 
-            if (rating !== "" && review !== "") {
-                if (userId !== null) {
-                    if (typeReveiw === "addNew") {
-                        setLoadingDdd(true)
-                        await dispatch(AddReview(
-                            {
+                if (rating !== "" && review !== "") {
+                    if (userId !== null) {
+                        if (typeReveiw === "addNew") {
+                            setLoadingDdd(true)
+                            await dispatch(AddReview(
+                                {
+                                    review,
+                                    rating,
+                                    "product": id,
+                                    "user": userId._id
+                                }
+                            ))
+                            setLoadingDdd(false)
+                        } else {
+                            setLoadingUpdate(true)
+                            let info = {
                                 review,
-                                rating,
-                                "product": id,
-                                "user": userId._id
+                                rating
                             }
-                        ))
-                        setLoadingDdd(false)
-                    } else {
-                        setLoadingUpdate(true)
-                        let info = {
-                            review,
-                            rating
+                            await dispatch(UpdateSpecificReveiw(
+                                {
+                                    idUpdateReveiw,
+                                    info
+                                }))
+                            setLoadingUpdate(false)
                         }
-                        await dispatch(UpdateSpecificReveiw(
-                            {
-                                idUpdateReveiw,
-                                info
-                            }))
-                        setLoadingUpdate(false)
-                    }
 
+                    } else {
+                        toast.error("Login first")
+                    }
                 } else {
-                    toast.error("Login first")
+                    if (review === "") {
+                        toast.error("Add Reveiw description")
+                    } if (rating === "") {
+                        toast.error("Change Reveiw rating helre")
+                    }
                 }
             } else {
-                if (review === "") {
-                    toast.error("Add Reveiw description")
-                } if (rating === "") {
-                    toast.error("Change Reveiw rating helre")
-                }
+                toast.error("admin can't add review")
             }
         } else {
-            toast.error("admin can't add review")
-
+            toast.error("login first")
         }
+
+
     }
 
 

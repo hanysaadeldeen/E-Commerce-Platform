@@ -1,8 +1,8 @@
 
 import { CirclePicker } from 'react-color'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlus, faStar } from "@fortawesome/free-solid-svg-icons"
-import { faMinus } from "@fortawesome/free-solid-svg-icons"
+import { faStar } from "@fortawesome/free-solid-svg-icons"
+// import { faMinus } from "@fortawesome/free-solid-svg-icons"
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons"
 import AddProductToCart from '../../Hook/Cart/AddProductToCart'
 import { Toaster } from 'react-hot-toast';
@@ -14,17 +14,17 @@ const ProductInfo = (info) => {
 
     const colors = info.info.availableColors
 
-    const size = [
-        {
-            value: "S"
-        },
-        {
-            value: "M"
-        },
-        {
-            value: "LG"
-        },
-    ]
+    // const size = [
+    //     {
+    //         value: "S"
+    //     },
+    //     {
+    //         value: "M"
+    //     },
+    //     {
+    //         value: "LG"
+    //     },
+    // ]
 
     const [AddtoCart, getFinalColor] = AddProductToCart()
 
@@ -58,7 +58,7 @@ const ProductInfo = (info) => {
                     onChangeComplete={(e, colors) => getFinalColor(colors.target.title)}
                 />
             </div>
-            <div className="size mt-5 ">
+            {/* <div className="size mt-5 ">
                 <h1 className="font-extrabold text-sm uppercase  pb-2">size <span className="text-lg text-red-400"> soon</span></h1>
                 <div style={{ backgroundColor: "rgb(218 218 218 / 49%)" }} className="w-fit flex child:border
                                 child:border-[#fff] p-1
@@ -72,7 +72,7 @@ const ProductInfo = (info) => {
                         )
                     })}
                 </div>
-            </div>
+            </div> */}
             <div className="quantity_and_order mt-5 " >
                 <h1 className="my-3 text-base font-normal italic"><a href="#" className="underline pb-2 ">Shipping</a>  calculated at checkout</h1>
                 <div className=" mb-4 border border-[#bbb]  uppercase 
@@ -81,7 +81,7 @@ const ProductInfo = (info) => {
                     free shipping on order over <span className="text-[#e95144]"> 750 </span>l.e
                 </div>
                 <div className="max-sm:w-full lg:max-w-[90%] lg:flex gap-2">
-                    <div className="quantity max-lg:my-3">
+                    {/* <div className="quantity max-lg:my-3">
 
                         <div className="w-32 border border-[#bbb]  py-3 justify-between flex items-center ">
                             <h1 className="w-2/5 text-center pt-1 " >
@@ -93,8 +93,7 @@ const ProductInfo = (info) => {
                             </h1>
                         </div>
 
-
-                    </div>
+                    </div> */}
                     <div
                         onClick={() => AddtoCart(info.idProd)}
                         className="add_to_cart border border-[#bbb]  uppercase grow

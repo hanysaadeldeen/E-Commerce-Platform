@@ -21,12 +21,14 @@ const Loginhook = () => {
         e.preventDefault()
 
         if (password !== "" && email !== "") {
+
             setLog(true)
             await dispatch(LoginPage({
                 email,
                 password
             }))
             setLog(false)
+
         } else {
             toast.error('fill the blank input')
         }
@@ -47,16 +49,19 @@ const Loginhook = () => {
                 localStorage.setItem("user", JSON.stringify(user.data))
                 localStorage.setItem("token", user.token)
                 setTimeout(() => {
-                    // Navigate("/")
                     window.location.href = "/"
                 }, 1000)
             } else {
                 if (error !== null) {
                     if (error.errors && error.errors[0].msg === "Invalid email formate") {
                         toast.error('Invalid email formate!')
+                        setLog(false)
+
                     }
                     if (error.message === "Incorrect email or password") {
                         toast.error('Incorrect email or password')
+                        setLog(false)
+
                     }
                 }
             }
@@ -66,7 +71,8 @@ const Loginhook = () => {
 
 
 
-    return [submitData, getLoginInfo, setEmail, setPassword]
+
+    return [submitData, getLoginInfo, setEmail, setPassword, lo]
 }
 
 export default Loginhook

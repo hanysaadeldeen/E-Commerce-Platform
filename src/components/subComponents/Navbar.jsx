@@ -4,6 +4,10 @@ import Searchhook from "../../Hook/Searchhook";
 import GetUserProductCart from "../../Hook/Cart/GetUserProductCart";
 
 import logo from "../../assets/image/logo.png"
+import searchL from "../../assets/image/search.png"
+import cart from "../../assets/image/shopping-cart.png"
+import { useDispatch } from "react-redux";
+import { GetUserCart } from "../../reduxTool/CartSlice";
 
 export default function Navbar() {
   const [search, setSearch] = useState(false)
@@ -41,10 +45,16 @@ export default function Navbar() {
 
   const userr = JSON.parse(localStorage.getItem("user")) || []
 
+  const dispatch = useDispatch()
+
   const removeUser = async () => {
     localStorage.removeItem("user")
     localStorage.removeItem("token")
     setShowDropDown(false)
+
+    await dispatch(GetUserCart())
+
+
   }
   const url = useLocation();
   const segments = url.pathname.split('/');
@@ -181,7 +191,7 @@ export default function Navbar() {
 
             </ul>
             <div className='flex gap-2 items-center'>
-              <img src="/src/assets/image/search.png"
+              <img src={searchL}
                 onClick={() => SearchFun()}
                 className='w-[22px] mr-2 md:mt-1 cursor-pointer' alt="" />
 
@@ -190,14 +200,14 @@ export default function Navbar() {
                   onClick={() => setShowDropDown(false)}
 
                 >
-                  <img src="/src/assets/image/shopping-cart.png" className='w-[25px] cursor-pointer' alt="" />
+                  <img src={cart} className='w-[25px] cursor-pointer' alt="" />
                   <span className="absolute -top-3 text-center -right-3 w-6 h-6 rounded-full text-white font-bold bg-red-500">{AllCart.numOfCartItems}</span>
                 </Link> :
                 <Link to="/CartPage" className='relative mt-1 max-md:hidden'
                   onClick={() => setShowDropDown(false)}
 
                 >
-                  <img src="/src/assets/image/shopping-cart.png" className='w-[25px] cursor-pointer' alt="" />
+                  <img src={cart} className='w-[25px] cursor-pointer' alt="" />
                 </Link>
               }
 

@@ -23,14 +23,12 @@ const Registerhook = () => {
     const [phone, setPhone] = useState("")
     const [lo, setLog] = useState(true)
 
-    const { Registeruser, isloading, error } = useSelector((state) => state.Auth)
+    const { Registeruser, error } = useSelector((state) => state.Auth)
     const dispatch = useDispatch()
 
 
     const submitData = async (e) => {
-
         e.preventDefault()
-
         if (name.length >= 3 && passwordConfirm !== "" && phone !== "" && password !== "" && email !== "") {
             if (password.length >= 6) {
                 if (passwordConfirm === password) {

@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
 // import CatTypes from "./components/Category/CatTypes";
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Navbar />
         <Routes>
           {/* for all */}
@@ -94,7 +94,7 @@ function App() {
         </Routes>
         <Footer />
         <NavbarMoblie />
-      </BrowserRouter>
+      </HashRouter>
     </>
   )
 }

@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom"
 import Loginhook from "../../Hook/Auth/Loginhook"
 import { Toaster } from 'react-hot-toast';
+// import { SpinnerDiamond } from "spinners-react";
 const LoginPage = () => {
 
 
 
-    const [submitData, getLoginInfo, setEmail, setPassword] = Loginhook()
+    const [submitData, getLoginInfo, setEmail, setPassword,] = Loginhook()
+
 
     return (
         <div className='py-20'>
@@ -20,7 +22,13 @@ const LoginPage = () => {
                         <h1 className="text-md underline  underline-offset-2">Forgot your password? </h1>
                     </Link>
                     <form className="mt-5">
-                        <button onClick={submitData} className="rounded-sm  uppercase  mb-4  w-[500px] max-w-full mx-auto  leading-9 py-2 tracking-wider text-center bg-black text-white cursor-pointer   ">
+
+                        {/* {
+                            !lo && <div className="flex  mb-5 items-center justify-center w-full">
+                                <SpinnerDiamond speed={150} secondaryColor={"#ddd"} />
+                            </div>
+                        } */}
+                        <button onClick={submitData} className={"rounded-sm  uppercase  mb-4  w-[500px] max-w-full mx-auto  leading-9 py-2 tracking-wider text-center bg-black text-white "}>
                             sign in
                         </button>
                         <div className=" gap-4 flex flex-col">
@@ -33,8 +41,6 @@ const LoginPage = () => {
                         </div>
                     </form>
                 </div>
-                <Link to="/user/order" className="text-red-500 block text-center"> user Page</Link>
-                <Link to="/admin/Allproduct" className="text-red-500 block text-center"> admin Page</Link>
             </div>
 
             <Toaster
