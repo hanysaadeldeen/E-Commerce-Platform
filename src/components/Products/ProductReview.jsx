@@ -26,7 +26,7 @@ const ProductReview = () => {
             <h1 className="mx-4 mb-4 text-xl font-extrabold md:text-center" > {AllReviews && AllReviews.length} Review</h1>
             <h1 className=" border border-[#bbb]  uppercase grow
                     leading-9 py-2 px-7 mx-auto tracking-wide  w-fit 
-                    hover:bg-black duration-300 ease-in-out hover:text-white cursor-pointer"
+                    hover:bg-black duration-300 ease-in-out hover:text-white cursor-pointer text-center"
                 onClick={() => serReviewShow(!reviewShow)}>
                 write a review
             </h1>
@@ -54,8 +54,8 @@ const ProductReview = () => {
                 </div>
                 <div
                     onClick={AddNewReveiw}
-                    className="my-4 border border-[#bbb]  uppercase 
-                    w-fit  leading-9 py-2 px-6  rounded-sm tracking-wide text-center
+                    className="my-4 border border-[#bbb]  uppercase  
+                    w-fit  leading-9 py-2 px-6 mx-auto  rounded-sm tracking-wide text-center
                     bg-black text-white cursor-pointer">
                     submit review
                 </div>
