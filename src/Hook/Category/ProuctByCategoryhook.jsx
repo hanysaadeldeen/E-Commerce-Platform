@@ -4,7 +4,7 @@ import { getProductByFilterSearch, getSubProductFromProduct } from "../../reduxT
 import { GetSpecificCategory } from "../../reduxTool/CategorySlice";
 import { GetAllBrand } from "../../reduxTool/BrandSlice";
 import Searchhook from "../Searchhook";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ProuctByCategoryhook = (id) => {
 
@@ -53,7 +53,7 @@ const ProuctByCategoryhook = (id) => {
 
     // ge all brand 
     useEffect(() => {
-        if (window.location.pathname.startsWith(`/Category/`)) {
+        if (title === "Category") {
             dispatch(GetAllBrand())
         }
     }, [dispatch])
@@ -130,15 +130,19 @@ const ProuctByCategoryhook = (id) => {
     // end items per pag
 
 
+    const url = useLocation();
+    const segments = url.pathname.split('/');
+    const title = segments[1]
+    // console.log(title);
 
     const getProductFilter = async (numberPage) => {
         let brandApi = allBrandChecked.map((item) => "brand[in][]=" + item).join("&")
-        if (searchq !== "" && searchq !== null && window.location.pathname.startsWith(`/Category/`)) {
+        if (searchq !== "" && searchq !== null && title === "Category") {
             setLoadingProductf(true)
             await dispatch(getProductByFilterSearch(`keyword=${searchq}&limit=${itemsPage}&page=${numberPage}&sort=${sort}&${searchq}&category=${id}&${brandApi}&price[gte]=${searchpricegte}&price[lte]=${searchpricelte}`))
             setLoadingProductf(false)
         } else if (searchq === "" || searchq === null) {
-            if (window.location.pathname.startsWith(`/Category/`)) {
+            if (title === "Category") {
                 setLoadingProductf(true)
                 await dispatch(getProductByFilterSearch(`keyword=&limit=${itemsPage}&page=${numberPage}&sort=${sort}&category=${id}&${brandApi}&price[gte]=${searchpricegte}&price[lte]=${searchpricelte}`))
                 setLoadingProductf(false)

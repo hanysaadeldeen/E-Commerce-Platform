@@ -5,7 +5,7 @@ import { getProductByFilterSearch } from "../../reduxTool/ProdctSlice"
 import { GetAllCategory } from "../../reduxTool/CategorySlice"
 import { GetAllBrand } from "../../reduxTool/BrandSlice"
 import Searchhook from "../Searchhook"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 const ShopProductPagehook = () => {
 
@@ -50,10 +50,14 @@ const ShopProductPagehook = () => {
 
     const [itemsPage, setItemPage] = useState(10)
 
+    const url = useLocation();
+    const segments = url.pathname.split('/');
+    const title = segments[1]
+
 
     // excute when page loaded
     useEffect(() => {
-        if (location.pathname === "/ShopProductPage") {
+        if (title === "ShopProductPage") {
             // dispatch(getAllProduct())
             dispatch(GetAllCategory())
             dispatch(GetAllBrand())
@@ -126,6 +130,9 @@ const ShopProductPagehook = () => {
     // }
 
 
+
+
+
     // start toogle for drop down slider
     const btnref = useRef()
     useEffect(() => {
@@ -155,23 +162,25 @@ const ShopProductPagehook = () => {
 
 
     const getProductFilter = async (numberPage) => {
+
         let categoryApi = allcategoryChecked.map((item) => "category[in][]=" + item).join("&")
         let brandApi = allBrandChecked.map((item) => "brand[in][]=" + item).join("&")
-        if (searchq !== "" && searchq !== null && location.pathname === "/ShopProductPage") {
-            console.log(itemsPage);
+
+        if (searchq !== "" && searchq !== null && title === "ShopProductPage") {
+
+            console.log("here3");
             setLoadingProductf(true)
             await dispatch(getProductByFilterSearch(`keyword=${searchq}&limit=${itemsPage}&page=${numberPage}&sort=${sort}&${categoryApi}&${brandApi}&price[gte]=${searchpricegte}&price[lte]=${searchpricelte}`))
             setLoadingProductf(false)
         } else if (searchq === "" || searchq === null) {
-            if (location.pathname === "/ShopProductPage") {
+            if (title === "ShopProductPage") {
                 setLoadingProductf(true)
+                console.log("here4");
                 await dispatch(getProductByFilterSearch(`keyword=&limit=${itemsPage}&page=${numberPage}&sort=${sort}&${categoryApi}&${brandApi}&price[gte]=${searchpricegte}&price[lte]=${searchpricelte}`))
                 setLoadingProductf(false)
             }
         }
     }
-
-
 
 
     useEffect(() => {

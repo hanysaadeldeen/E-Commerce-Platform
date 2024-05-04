@@ -29,13 +29,17 @@ export default function Navbar() {
 
   const Navigate = useNavigate()
 
+  const url = useLocation();
+  const segments = url.pathname.split('/');
+  const title = segments[1]
+  const title2 = segments[2]
 
 
 
   const SearchFun = () => {
     setSearch(!search)
-    if (window.location.pathname !== "/ShopProductPage" &&
-      !window.location.pathname.startsWith(`/Category/`)) {
+    if (title !== "ShopProductPage" &&
+      !title === "Category") {
       Navigate("/ShopProductPage")
     }
   }
@@ -56,10 +60,7 @@ export default function Navbar() {
 
 
   }
-  const url = useLocation();
-  const segments = url.pathname.split('/');
-  const title = segments[1]
-  const title2 = segments[2]
+
 
   return (
     <div className="navbar relative">
