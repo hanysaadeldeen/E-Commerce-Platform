@@ -9,6 +9,9 @@ import { useLocation, useNavigate } from "react-router-dom"
 
 const ShopProductPagehook = () => {
 
+
+
+
     const Navigate = useNavigate()
     const dispatch = useDispatch()
 

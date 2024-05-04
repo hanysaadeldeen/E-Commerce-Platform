@@ -5,7 +5,18 @@ import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import img6 from "../../assets/image/6.png"
 import img7 from "../../assets/image/7.png"
 import img8 from "../../assets/image/8.jpeg"
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { GetAllCategory } from '../../reduxTool/CategorySlice'
+import { Link } from 'react-router-dom'
 const TopSearch = () => {
+    const dispatch = useDispatch()
+
+    const { data } = useSelector((state) => state.category)
+    useEffect(() => {
+        dispatch(GetAllCategory())
+    }, [])
+
     return (
         <div className='md:py-10'>
             <div className="TopSearch container  max-sm:mb-5 mb-10  ">
@@ -28,22 +39,21 @@ const TopSearch = () => {
                     </div>
                     <div className="max-md:w-full pt-2  w-2/3">
                         <h1 className="capitalize text-xl font-semibold mb-10 ">top search</h1>
-                        <div className="type flex justify-between items-center border-b-2 font-semibold border-slate-200 mb-7 cursor-pointer capitalize text-xl px-1 pb-5">
-                            <h2>denail</h2>
-                            <FontAwesomeIcon icon={faAngleRight} />
-                        </div>
-                        <div className="type flex justify-between items-center border-b-2 font-semibold border-slate-200 mb-7 capitalize text-xl px-1 pb-5">
-                            <h2 className=''>casual shoes</h2>
-                            <FontAwesomeIcon icon={faAngleRight} />
-                        </div>
-                        <div className="type flex justify-between items-center border-b-2 font-semibold border-slate-200 mb-7 capitalize text-xl px-1 pb-5">
-                            <h2>dress</h2>
-                            <FontAwesomeIcon icon={faAngleRight} />
-                        </div>
-                        <div className="type flex justify-between items-center border-b-2 font-semibold border-slate-200 mb-7 capitalize text-xl px-1 pb-5">
-                            <h2>minimalist</h2>
-                            <FontAwesomeIcon icon={faAngleRight} />
-                        </div>
+                        {
+                            data && data.length > 0 &&
+                            data.slice(0, 5).map((nameCat) => {
+                                return (
+                                    <Link to={`/Category/${nameCat._id}`} key={nameCat._id}>
+                                        <div
+                                            className="type flex justify-between items-center border-b-2 font-semibold border-slate-200 mb-7 cursor-pointer capitalize text-xl px-1 pb-5">
+                                            <h2>{nameCat.name}</h2>
+                                            <FontAwesomeIcon icon={faAngleRight} />
+                                        </div>
+                                    </Link>
+
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>

@@ -3,7 +3,10 @@ import WishListehook from "../Hook/wishLish/WishListehook"
 import { Toaster } from "react-hot-toast"
 import ProductCard from "../components/subComponents/ProductCard"
 
+
 const UserFavoritePage = () => {
+
+
 
     const [isLoading, wishLish] = WishListehook()
 

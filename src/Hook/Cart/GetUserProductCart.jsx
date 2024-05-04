@@ -9,6 +9,15 @@ const GetUserProductCart = () => {
 
     const dispatch = useDispatch()
 
+    const ScrollToTop = () => {
+        console.log("top");
+        useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
+
+        return null;
+    };
+    ScrollToTop()
     const { AllCart, isLoaing } = useSelector((state) => state.Cart)
 
     const userr = JSON.parse(localStorage.getItem("user")) || []

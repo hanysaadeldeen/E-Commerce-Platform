@@ -5,6 +5,9 @@ const CategoryPage = () => {
 
     const [category, error, isloading] = CategoryHook()
 
+
+
+
     return (
         <>
             <div className="pt-20 Collection">
