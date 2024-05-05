@@ -17,7 +17,7 @@ const UserAllOrdersPage = () => {
                                     return (<UserCardOrder info={item} key={item._id} />
                                     )
                                 }) :
-                                    <h1 className="text-center  text-2xl  w-full">You do not have any order</h1>
+                                    <h1 className="text-center  text-2xl  w-full">{"You don't have any order"}</h1>
                                 :
                                 <div className="flex items-center justify-center w-full">
                                     <SpinnerDiamond speed={150} secondaryColor={"#ddd"} />

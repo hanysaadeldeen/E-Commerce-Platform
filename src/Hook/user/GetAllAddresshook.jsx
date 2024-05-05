@@ -12,6 +12,14 @@ const GetAllAddresshook = () => {
     const { Address, isloading } = useSelector((state) => state.Address)
     const dispatch = useDispatch()
 
+    const ScrollToTop = () => {
+        useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
+
+        return null;
+    };
+    ScrollToTop()
 
     const GetAllAddress = async () => {
         await dispatch(Alladress())

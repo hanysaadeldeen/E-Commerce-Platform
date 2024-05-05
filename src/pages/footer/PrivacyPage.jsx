@@ -1,5 +1,14 @@
+import { useEffect } from "react";
 
 const PrivacyPage = () => {
+    const ScrollToTop = () => {
+        useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
+
+        return null;
+    };
+    ScrollToTop()
     return (
         <div className="py-20">
             <div className="mx-auto w-full  max-w-[750px] max-md:px-4 mt-10">

@@ -1,9 +1,18 @@
-import { faPhone } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import whatsApp from "../../assets/image/whatsApp.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons"
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { useEffect } from "react";
 
 const ContactPage = () => {
+    const ScrollToTop = () => {
+        useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
+
+        return null;
+    };
+    ScrollToTop()
     return (
         <div className="py-20 bg-[#F7F8FA]">
             <div className="container ">
@@ -23,35 +32,27 @@ const ContactPage = () => {
                             <label htmlFor="comment" className="ml-1 tracking-wider ">Comment</label>
                             <textarea name="" id="" placeholder="Add Comment" cols="30" rows="10" className="py-2 px-3 rounded-sm border border-[#c0c0c0] mt-2 w-full"></textarea>
                             <h1 className=" border border-[#bbb]  mb-3 uppercase 
-                            leading-9 py-2 px-7 mt-5 tracking-wide  w-fit 
+                            leading-9 py-2 px-7 mt-5 tracking-wide  w-full text-center 
                             bg-black text-white duration-300  ease-in-out hover:text-black hover:bg-white cursor-pointer">
                                 submit contact
                             </h1>
                         </div>
                         <div className="md:ml-20 p-6">
-                            <div className="flex gap-3 items-center">
-                                <FontAwesomeIcon icon={faPhone} className="text-lg " />
-                                <a href="tel:+201093720956" >
-                                    <span className="font-semibold">CALL US  </span>
-                                    : 01093720956
+                            <h1 className="mb-14 text-3xl text-center font-medium">contact us directly</h1>
+                            <div className="flex  items-center gap-8 justify-center">
+                                <a href="tel:+201093720956" title="Call us" >
+                                    <FontAwesomeIcon icon={faPhone} className="text-3xl  " />
+                                </a>
+                                <a href="http://wa.me/+201093720956" title="our whatsApp ">
+                                    <FontAwesomeIcon icon={faWhatsapp} className="text-4xl text-green-500" />
+                                </a>
+                                <a href="mailto:saaddeenhany@gmail.com" title="our gmail">
+                                    <FontAwesomeIcon icon={faEnvelope} className="text-4xl text-[#3e65cf]" />
                                 </a>
                             </div>
-                            <div className=" mt-5 flex gap-2 items-center">
-                                <a href="http://wa.me/+201093720956" >
-                                    <img src={whatsApp} className="w-12" />
-
-                                </a>
-                                <h1 className="text-lg">: send message</h1>
-                            </div>
-                            <div className=" mt-5 flex gap-2 items-center">
-                                <a href="mailto:saaddeenhany@gmail.com" >
-                                    <span className="font-semibold">saaddeenhany@gmail.com</span>
-                                </a>
-                                <h1 className="text-xl font-normal">: our email</h1>
-                            </div>
-                            <div className="mt-10">
-                                <h1 className="font-medium  mb-1"> Opening Hours:</h1>
-                                <h1 className="font-normal "> Saturday to Thursday: from 9 AM to 5 PM</h1>
+                            <div className="mt-12 text-center">
+                                <h1 className="font-medium text-xl   mb-2"> Opening Hours:</h1>
+                                <h1 className="font-normal text-lg"> Saturday to Thursday: from 9 AM to 5 PM</h1>
                             </div>
                         </div>
                     </div>

@@ -3,20 +3,21 @@ import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const UserCardOrder = ({ info }) => {
-    // console.log(info.cartItems);
+    let baseUrl = "https://backend-for-ecommerce-plateform2.onrender.com/products/"
     return (
         <div className="cursor-pointer mb-6 rounded-md   bg-[#F9F9F9] ">
             <h1 className="p-2 "> order number: #{info.id}</h1>
             <div className="flex flex-col">
                 {
                     info.cartItems && info.cartItems.map((item) => {
+
                         return (
                             <div className="flex mb-5" key={item._id}>
                                 {
                                     item.product &&
                                     <Link to={`/Product/${item.product._id}`}>
                                         <div className="w-32 max-[400px]:mx-auto   cursor-pointer mr-6">
-                                            <img src={item.product.imageCover} className="max-sm:rounded-md  rounded-tl-md" alt="" />
+                                            <img src={`${baseUrl}${item.product.imageCover}`} className="max-sm:rounded-md  rounded-tl-md" alt="" />
                                         </div>
                                     </Link>
                                 }

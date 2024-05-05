@@ -133,7 +133,6 @@ const ProuctByCategoryhook = (id) => {
     const url = useLocation();
     const segments = url.pathname.split('/');
     const title = segments[1]
-    // console.log(title);
 
     const getProductFilter = async (numberPage) => {
         let brandApi = allBrandChecked.map((item) => "brand[in][]=" + item).join("&")

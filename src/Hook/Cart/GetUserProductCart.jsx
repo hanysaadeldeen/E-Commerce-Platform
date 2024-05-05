@@ -10,7 +10,6 @@ const GetUserProductCart = () => {
     const dispatch = useDispatch()
 
     const ScrollToTop = () => {
-        console.log("top");
         useEffect(() => {
             window.scrollTo(0, 0);
         }, []);

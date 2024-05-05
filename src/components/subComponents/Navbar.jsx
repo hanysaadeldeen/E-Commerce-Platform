@@ -39,8 +39,17 @@ export default function Navbar() {
   const SearchFun = () => {
     setSearch(!search)
     if (title !== "ShopProductPage" &&
-      !title === "Category") {
+      title !== "Category") {
       Navigate("/ShopProductPage")
+
+
+
+
+
+      setShowDropDown(false)
+
+
+
     }
   }
 
@@ -55,10 +64,7 @@ export default function Navbar() {
     localStorage.removeItem("user")
     localStorage.removeItem("token")
     setShowDropDown(false)
-
     await dispatch(GetUserCart())
-
-
   }
 
 

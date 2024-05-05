@@ -171,14 +171,12 @@ const ShopProductPagehook = () => {
 
         if (searchq !== "" && searchq !== null && title === "ShopProductPage") {
 
-            console.log("here3");
             setLoadingProductf(true)
             await dispatch(getProductByFilterSearch(`keyword=${searchq}&limit=${itemsPage}&page=${numberPage}&sort=${sort}&${categoryApi}&${brandApi}&price[gte]=${searchpricegte}&price[lte]=${searchpricelte}`))
             setLoadingProductf(false)
         } else if (searchq === "" || searchq === null) {
             if (title === "ShopProductPage") {
                 setLoadingProductf(true)
-                console.log("here4");
                 await dispatch(getProductByFilterSearch(`keyword=&limit=${itemsPage}&page=${numberPage}&sort=${sort}&${categoryApi}&${brandApi}&price[gte]=${searchpricegte}&price[lte]=${searchpricelte}`))
                 setLoadingProductf(false)
             }

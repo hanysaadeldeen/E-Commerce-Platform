@@ -7,6 +7,7 @@ import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 
 import Reviewhook from "../../Hook/Cart/Reveiwhook"
 import { useParams } from "react-router-dom";
+import user from "../../assets/image/user.jpg"
 /* eslint-disable react/prop-types */
 
 const ProductReview = () => {
@@ -69,7 +70,7 @@ const ProductReview = () => {
                                 <div key={item._id} className="mx-4 my-5 border-b pb-5">
                                     <div className="flex items-start justify-between">
                                         <div className="flex items-center gap-4 mb-2 ">
-                                            <img src="/src/assets/image/user.jpg" className="max-w-[48px] rounded-full" alt="user_img" />
+                                            <img src={user} className="max-w-[48px] rounded-full" alt="user_img" />
                                             <div>
                                                 <div className="flex items-center gap-1">
                                                     <h1 className="font-bold mt-1">{item.rating}</h1>

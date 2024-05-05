@@ -12,7 +12,8 @@ const CartProductInfo = ({ Allproduct, DeleteUserAllCart, price }) => {
 
 
 
-    const [Address, getMainLocation, BuyNow, setDeliveryMethod, openOrders, setOpenOrder, setCoupon, coupon, sumbmitCoupon, coupones] = CheckoutOrderhook(Allproduct._id)
+    const [Address, getMainLocation, BuyNow, setDeliveryMethod, openOrders,
+        setOpenOrder, setCoupon, coupon, sumbmitCoupon, coupones] = CheckoutOrderhook(Allproduct._id)
 
     if (openOrders === true) {
         document.body.style.overflow = "hidden"
@@ -147,7 +148,7 @@ const CartProductInfo = ({ Allproduct, DeleteUserAllCart, price }) => {
                                         <input className="inp-cbx hidden" onChange={() => setDeliveryMethod("Cash")} id="visa" name="payment" type="radio" />
                                         <label className="cbx" htmlFor="visa">
                                             <span>
-                                                <svg width="12px" height="9px" viewBox="0 0 12 9">
+                                                <svg width="12px" height="9px" viewBox="0 0 12 9">س
                                                     <polyline points="1 5 4 8 11 1"></polyline>
                                                 </svg>
                                             </span>

@@ -3,12 +3,12 @@ import { Alladress, GetSpecificeAddresss } from "../../reduxTool/AddressSlice"
 import { useEffect, useState } from "react"
 import { ApplyCouponOnProduct, MakeOrderCash } from "../../reduxTool/CheckOutslice"
 import toast from "react-hot-toast"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 import { GetUserCart } from "../../reduxTool/CartSlice"
 
 const CheckoutOrderhook = (id) => {
     const dispatch = useDispatch()
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
 
     const [openOrders, setOpenOrder] = useState(false)
@@ -131,8 +131,8 @@ const CheckoutOrderhook = (id) => {
                         GetUserCartProduct()
                         setOpenOrder(!openOrders)
                         setTimeout(() => {
-                            navigate("/user/order")
-                        }, 1500);
+                            window.location.href = "/user/order"
+                        }, 1500)
                     } else {
                         toast.error('some thing went wrong try later');
                     }

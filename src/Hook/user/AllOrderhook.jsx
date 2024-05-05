@@ -4,6 +4,16 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const AllOrderhook = () => {
     const dispatch = useDispatch()
+
+    const ScrollToTop = () => {
+        useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
+
+        return null;
+    };
+    ScrollToTop()
+
     const { order, isloading } = useSelector((state) => state.UserInfo)
     const GetAllOrder = async () => {
         await dispatch(GetLogedUserOrder())

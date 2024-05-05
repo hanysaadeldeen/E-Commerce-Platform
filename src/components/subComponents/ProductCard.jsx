@@ -13,9 +13,7 @@ const ProductCard = ({ item, wishLish }) => {
     } else {
         baseUrl = ""
     }
-
     const [favType, handelFav] = ProductCardWishLIst(item._id, wishLish)
-
     return (
         <div className="relative mb-5 max-md:mb-3  pb-2 ">
             <Link to={`/Product/${item._id}`} className="" >
