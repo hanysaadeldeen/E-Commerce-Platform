@@ -16,6 +16,15 @@ const Loginhook = () => {
     const { user, error } = useSelector((state) => state.Auth)
     const dispatch = useDispatch()
 
+    const ScrollToTop = () => {
+        useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
+
+        return null;
+    };
+    ScrollToTop()
+
 
     const submitData = async (e) => {
         e.preventDefault()

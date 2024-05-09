@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom"
 import Slider from "react-slick";
-import img1 from "../../assets/image/test1.jpg"
-import img2 from "../../assets/image/test2.jpg"
+import img1 from "../../assets/image/test8.jpg"
+import img2 from "../../assets/image/last.jpg"
 import img3 from "../../assets/image/test3.jpg"
 var settings = {
     dots: false,
@@ -31,6 +31,7 @@ const Landing = () => {
         //     </div>
         // </div >
         <Slider {...settings} className="pt-12 ladn xl:h-screen overflow-hidden ">
+
             <img src={img3} alt="" className="w-fit" />
             <img src={img1} alt="" className="w-fit" />
             <img src={img2} alt="" className="w-fit" />

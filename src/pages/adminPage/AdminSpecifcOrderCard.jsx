@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const AdminSpecifcOrderCard = ({ info }) => {
+    let baseUrl = "https://backend-for-ecommerce-plateform2.onrender.com/products/"
+
     return (
         <div className="cursor-pointer mb-4 rounded-md   bg-[#F9F9F9] ">
             <div className="flex flex-col">
                 <div className="flex " key={info._id}>
                     <Link to={`/Product/${info.product._id}`}>
                         <div className="w-32 max-[400px]:mx-auto   cursor-pointer mr-6">
-                            <img src={info.product.imageCover} className="max-sm:rounded-md  rounded-tl-md" alt="" />
+                            <img src={`${baseUrl}${info.product.imageCover}`} className="max-sm:rounded-md  rounded-tl-md" alt="" />
                         </div>
                     </Link>
                     <div className="flex pr-3 flex-1 max-md:flex-col max-md:text-left text-right">

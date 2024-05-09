@@ -1,5 +1,6 @@
 
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { Routes, Route, HashRouter, BrowserRouter } from "react-router-dom";
+// HashRouter
 import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
 // import CatTypes from "./components/Category/CatTypes";

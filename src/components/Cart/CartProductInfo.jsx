@@ -10,8 +10,6 @@ import CheckoutOrderhook from "../../Hook/Cart/CheckoutOrderhook";
 /* eslint-disable react/prop-types */
 const CartProductInfo = ({ Allproduct, DeleteUserAllCart, price }) => {
 
-
-
     const [Address, getMainLocation, BuyNow, setDeliveryMethod, openOrders,
         setOpenOrder, setCoupon, coupon, sumbmitCoupon, coupones] = CheckoutOrderhook(Allproduct._id)
 
@@ -20,6 +18,7 @@ const CartProductInfo = ({ Allproduct, DeleteUserAllCart, price }) => {
     } else {
         document.body.style.overflow = "auto"
     }
+
 
     return (
         <>
@@ -44,10 +43,10 @@ const CartProductInfo = ({ Allproduct, DeleteUserAllCart, price }) => {
                 <h1 className=" text-sm  mt-4 text-black tracking-wide cursor-pointer">Taxes and <span className="underline underline-offset-4" > shipping </span> calculated at checkout</h1>
             </div>
             <div
-                onClick={() => setOpenOrder(!openOrders)}
+                onClick={() => setOpenOrder(true)}
                 className=" mx-auto order_now mt-3 border border-[#bbb]  uppercase 
                     w-full lg:max-w-[90%]  leading-9 py-2 tracking-wide text-center
-                    bg-black text-white cursor-pointer max-sm:text-sm rounded-sm
+                    bg-black text-white cursor-pointer max-sm:py-2.5 rounded-sm
                     ">
                 <FontAwesomeIcon icon={faBagShopping} className='mr-3  text-white  text-lg  cursor-pointer' />
                 Order Now
@@ -170,7 +169,9 @@ const CartProductInfo = ({ Allproduct, DeleteUserAllCart, price }) => {
                             </div>
                             <div
                                 onClick={BuyNow}
-                                className=" mx-auto order_now mt-4 rounded-sm   uppercase  w-full   leading-9 py-2 tracking-wide text-center bg-black text-white cursor-pointer max-sm:text-base  ">
+                                className=" mx-auto  mt-3 border border-[#bbb]  uppercase 
+                                w-full   leading-9 py-2 tracking-wide text-center
+                                bg-black text-white cursor-pointer  max-sm:py-2.5 rounded-sm ">
                                 BUY IT NOW - LE {price} EGP
                             </div>
                         </div>

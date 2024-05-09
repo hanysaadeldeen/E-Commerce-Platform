@@ -4,12 +4,14 @@ import { useEffect, useState } from "react"
 import { ApplyCouponOnProduct, MakeOrderCash } from "../../reduxTool/CheckOutslice"
 import toast from "react-hot-toast"
 // import { useNavigate } from "react-router-dom"
+// import { useHistory } from 'react-router-dom';
 import { GetUserCart } from "../../reduxTool/CartSlice"
+import { useNavigate } from "react-router-dom"
 
 const CheckoutOrderhook = (id) => {
     const dispatch = useDispatch()
-    // const navigate = useNavigate()
-
+    const navigate = useNavigate()
+    // const history = useHistory();
 
     const [openOrders, setOpenOrder] = useState(false)
 
@@ -122,17 +124,14 @@ const CheckoutOrderhook = (id) => {
         await dispatch(GetUserCart())
     }
 
+
     useEffect(() => {
         if (!lodCheck) {
             if (!loadingCheckout) {
                 if (checkOut.length !== 0) {
                     if (checkOut.status === "success") {
+                        setOpenOrder(false)
                         toast.success('order has been created successfully');
-                        GetUserCartProduct()
-                        setOpenOrder(!openOrders)
-                        setTimeout(() => {
-                            window.location.href = "/user/order"
-                        }, 1500)
                     } else {
                         toast.error('some thing went wrong try later');
                     }
@@ -140,6 +139,21 @@ const CheckoutOrderhook = (id) => {
             }
         }
     }, [lodCheck])
+
+
+    useEffect(() => {
+        if (!lodCheck) {
+            if (checkOut.status === "success") {
+                setTimeout(() => {
+                    GetUserCartProduct()
+                }, 100)
+                setTimeout(() => {
+                    navigate("/user/order")
+                }, 1500)
+            }
+        }
+    }, [lodCheck])
+
 
 
 

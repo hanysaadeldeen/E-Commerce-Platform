@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AddReview, DeleteSpecificReview, GetReviewOnProduct, UpdateSpecificReveiw } from '../../reduxTool/ReviewSlice'
 import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 const Reviewhook = (id) => {
 
@@ -42,6 +43,8 @@ const Reviewhook = (id) => {
     };
 
 
+    const navigate = useNavigate()
+
     const AddNewReveiw = async () => {
         if (userr !== "") {
             if (userr.role === "user") {
@@ -78,6 +81,7 @@ const Reviewhook = (id) => {
                     }
                 } else {
                     if (review === "") {
+                        navigate("/user/order")
                         toast.error("Add Reveiw description")
                     } if (rating === "") {
                         toast.error("Change Reveiw rating helre")

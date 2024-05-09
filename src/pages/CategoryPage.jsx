@@ -23,6 +23,7 @@ const CategoryPage = () => {
                                 return (
                                     <Link to={`/Category/${item._id}`} key={item._id}>
                                         <div className="my-1 font-bold  relative cursor-pointer max-sm:hover:bg-slate-50 max-sm:p-3 ">
+
                                             <img src={item.image} className=" max-sm:hidden" alt="" />
                                             <div className="max-sm:relative w-full absolute bottom-2 left-2">
                                                 <div className="relative w-fit">

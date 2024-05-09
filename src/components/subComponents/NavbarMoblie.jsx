@@ -26,8 +26,12 @@ const NavbarMoblie = () => {
         localStorage.removeItem("token")
         setShowDropDown(false)
     }
+
+
+
+
     return (
-        <div className='border-t-2 bg-white border-slate-100  md:hidden  bottom-0   w-full z-30 fixed'>
+        <div className='border-t-2 bg-white border-slate-100  md:hidden  bottom-0  w-full z-30 fixed'>
             <div className='container '>
                 <div className='px-5 pb-4  pt-3 flex justify-between items-center'>
                     {/* home page */}

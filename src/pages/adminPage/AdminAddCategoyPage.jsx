@@ -16,6 +16,7 @@ const AdminAddCategoyPage = () => {
         <div className=" flex max-lg:flex-col gap-4 ">
           <AdminSidePare addCategory={"addCategory"} />
           <div className="lg:w-3/4 max-lg:pl-2">
+
             <h1 className="max-lg:hidden mb-5 text-xl font-semibold">add category</h1>
             <h1 className="mb-1 text-[#888] pl-5 text-md font-semibold">category Image</h1>
             <div className="w-fit">

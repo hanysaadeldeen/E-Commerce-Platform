@@ -6,14 +6,14 @@ const Searchhook = () => {
 
 
     const [searchParams, setSearchParams] = useSearchParams({
-        q: "", priceGte: "0", priceLte: "4000"
+        q: "", priceGte: "0", priceLte: "2000"
     })
     const searchq = searchParams.get("q")
     const searchpricegte = searchParams.get("priceGte")
     const searchpricelte = searchParams.get("priceLte")
 
     const clearAll = () => {
-        setSearchParams({ q: "", priceGte: "0", priceLte: "4000" });
+        setSearchParams({ q: "", priceGte: "0", priceLte: "2000" });
     }
 
 

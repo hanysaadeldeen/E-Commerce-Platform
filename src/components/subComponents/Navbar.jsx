@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Searchhook from "../../Hook/Searchhook";
 import GetUserProductCart from "../../Hook/Cart/GetUserProductCart";
 
-import logo from "../../assets/image/logo.png"
+import logo from "../../assets/image/logo5.png"
 import searchL from "../../assets/image/search.png"
 import cart from "../../assets/image/shopping-cart.png"
 import { useDispatch } from "react-redux";
@@ -141,17 +141,17 @@ export default function Navbar() {
                           <div className="py-1" role="none">
                             <Link
                               onClick={() => setShowDropDown(false)}
-                              to={"/admin/Allproduct"} className={"hover:bg-slate-200 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm " +
+                              to="/admin/Allproduct" className={"hover:bg-slate-200 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm " +
                                 (title2 === "Allproduct" && "bg-slate-100")
                               } role="menuitem" id="menu-item-0">All Products</Link>
                             <Link
                               onClick={() => setShowDropDown(false)}
-                              to={"/admin/Allorder"} className={"hover:bg-slate-100 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm " +
+                              to="/admin/Allorder" className={"hover:bg-slate-100 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm " +
                                 (title2 === "Allorder" && "bg-slate-100")
                               } role="menuitem" id="menu-item-1">All orders</Link>
                             <Link
                               onClick={removeUser}
-                              to={"/loginPage"} className={"hover:bg-slate-100 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm " +
+                              to="/loginPage" className={"hover:bg-slate-100 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm " +
                                 (title2 === "loginPage" && "bg-slate-100")
                               } role="menuitem" id="menu-item-2">LogOut</Link>
                           </div>
@@ -190,10 +190,12 @@ export default function Navbar() {
                       }
                     </div>
                   :
-                  <Link to="/loginPage">
-                    <li className=" hover:bg-slate-100 cursor-pointer transition  duration-300 ease-in-out   p-4 ">
-                      login</li>
-                  </Link>
+                  <div>
+                    <Link to="/loginPage">
+                      <li className=" hover:bg-slate-100 cursor-pointer transition  duration-300 ease-in-out   p-4 ">
+                        login</li>
+                    </Link>
+                  </div>
               }
 
             </ul>
