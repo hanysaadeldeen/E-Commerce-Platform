@@ -16,7 +16,7 @@ const CartPage = () => {
     return (
         <div className="py-20 cart_Page">
             <div className="container">
-                <h1 className="text-center font-extrabold max-sm:text-xl text-2xl ">Shopping cart</h1>
+                <h1 className="text-center mt-10 font-extrabold max-sm:text-xl text-2xl ">Shopping cart</h1>
                 {!isLoaing ?
                     AllCart.data && AllCart.data.products.length !== 0 ?
                         <div className=" md:mt-6 max-w-[900px] mx-auto py-2 md:px-8">

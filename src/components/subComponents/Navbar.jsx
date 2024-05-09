@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Searchhook from "../../Hook/Searchhook";
 import GetUserProductCart from "../../Hook/Cart/GetUserProductCart";
 
-import logo from "../../assets/image/logo5.png"
+import logo from "../../assets/image/logo6.png"
 import searchL from "../../assets/image/search.png"
 import cart from "../../assets/image/shopping-cart.png"
 import { useDispatch } from "react-redux";
@@ -72,7 +72,7 @@ export default function Navbar() {
     <div className="navbar relative">
 
       <div className={"absolute  h-[60px] flex justify-center w-full items-center duration-300 ease-in-out    z-20  " +
-        (search ? "translate-y-[60px]" : "top-0")
+        (search ? "translate-y-[65px] max-md:translate-y-[82px]" : "top-0")
       }>
 
         <input type="search" name="" id=""
@@ -207,14 +207,12 @@ export default function Navbar() {
               {!isLoaing && AllCart.length !== 0 ?
                 <Link to="/CartPage" className='relative mt-1 max-md:hidden'
                   onClick={() => setShowDropDown(false)}
-
                 >
                   <img src={cart} className='w-[25px] cursor-pointer' alt="" />
                   <span className="absolute -top-3 text-center -right-3 w-6 h-6 rounded-full text-white font-bold bg-red-500">{AllCart.numOfCartItems}</span>
                 </Link> :
                 <Link to="/CartPage" className='relative mt-1 max-md:hidden'
                   onClick={() => setShowDropDown(false)}
-
                 >
                   <img src={cart} className='w-[25px] cursor-pointer' alt="" />
                 </Link>

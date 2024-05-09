@@ -8,6 +8,10 @@ import { faPinterestP } from '@fortawesome/free-brands-svg-icons'
 import { faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom'
 
+import visa from "../../assets/image/visa.png"
+import master from "../../assets/image/masterCard.png"
+import value from "../../assets/image/valu.png"
+import cash from "../../assets/image/cashOndelivery.png"
 const Footer = () => {
     return (
         // <div className='footer max-md:pb-14 mt-5  w-full bottom-0'>
@@ -49,10 +53,10 @@ const Footer = () => {
                         <div className="PAYMENT ACCEPT">
                             <h1 className="text-white text-lg tracking-wider font-bold">PAYMENT ACCEPT</h1>
                             <div className='flex flex-wrap items-center justify-center gap-4  mt-7'>
-                                <img src="/src/assets/image/visa.png" className='w-16' alt="" />
-                                <img src="/src/assets/image/masterCard.png" className='w-12' alt="" />
-                                <img src="/src/assets/image/valu.png" className='w-14' alt="" />
-                                <img src="/src/assets/image/cashOndelivery.png" className='w-16' alt="" />
+                                <img src={visa} className='w-16' alt="visa" />
+                                <img src={master} className='w-12' alt="master cart" />
+                                <img src={value} className='w-14' alt="value" />
+                                <img src={cash} className='w-16' alt="cash" />
                             </div>
 
                         </div>
