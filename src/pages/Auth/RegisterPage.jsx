@@ -12,7 +12,6 @@ const RegisterPage = () => {
     return (
         <div className='py-20'>
             <div className="container  ">
-
                 <div className="w-full text-center py-14 max-sm:py-7">
                     <h1 className='text-2xl  tracking-wide font-extrabold  w-fit mx-auto border-b-[3px] pb-2 px-3 border-black rounded-sm'>Create Account</h1>
                     <form className="flex flex-col my-8 max-sm:my-4  max-sm:gap-3 gap-5">
@@ -37,7 +36,6 @@ const RegisterPage = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
             <Toaster
                 position="top-center"

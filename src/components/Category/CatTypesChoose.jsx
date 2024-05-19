@@ -215,7 +215,7 @@ const CatTypesChoosePage = () => {
                 <div className="price mt-10">
                   <h1 className="font-extrabold uppercase border-b  border-[#787878] pb-2 mb-6">price</h1>
                   <RangeSlider
-                    min={0} max={5000} step={200}
+                    min={0} max={1500} step={200}
                     value={valuePrice}
                     onInput={setValuePrice}
                   />

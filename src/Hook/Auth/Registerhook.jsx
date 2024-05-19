@@ -24,7 +24,9 @@ const Registerhook = () => {
     const [lo, setLog] = useState(true)
 
     const { Registeruser, error } = useSelector((state) => state.Auth)
+
     const dispatch = useDispatch()
+
     const ScrollToTop = () => {
         useEffect(() => {
             window.scrollTo(0, 0);

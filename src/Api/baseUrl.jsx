@@ -7,6 +7,6 @@ const basUrl = axios.create({ baseURL: "https://backend-for-ecommerce-plateform2
 
 
 // const basUrl = axios.create({ baseURL: "http://127.0.0.1:8000" })
-
+// 
 
 export default basUrl
