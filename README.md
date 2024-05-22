@@ -1,8 +1,16 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#Hook Store Ready for Mobile and Web E-shop
 
-Currently, two official plugins are available:
+#Tools: React, Hash Router, Axios, Redux-Toolkit, React Hooks, Tailwind, CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1-Authentication (signup, Login, Forget Password, Reset Password, Verify Password, Logout).
+2-Protected Route.
+3-Browse Products, Browse Brands, Browse Categories and Subcategory.
+4-Advanced search, sorting, pagination and filtering.
+5-Star Rating System.
+6-Discount Coupon Code.
+7-Add to Cart, Add to Favorite List.
+8-Cash on Delivery, Credit Card Payment with Stripe.
+9-Routes for Admin and User,
+10-Image Upload and Multiple Image Upload (File Uploading) and Image Processing
