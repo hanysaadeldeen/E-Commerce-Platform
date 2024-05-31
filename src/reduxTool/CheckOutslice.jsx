@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { usePostData } from "../hooks/usePostDate";
 import { useUpdateData } from "../hooks/useUpdateDate";
+import { UseGetDataToken } from "../hooks/useGetData";
 
 
 
@@ -22,6 +23,16 @@ export const MakeOrderCash = createAsyncThunk(
     async (data, thunkAPI) => {
         try {
             const resp = await usePostData(`/api/v1/orders/${data.id}`, data.datails)
+            return resp
+        } catch (error) {
+            return thunkAPI.rejectWithValue('something went wrong');
+        }
+    })
+export const MakeOrderVisa = createAsyncThunk(
+    "MakeOrderVisa",
+    async (data, thunkAPI) => {
+        try {
+            const resp = await UseGetDataToken(`/api/v1/orders/checkout-session/${data.id}`, data.datails)
             return resp
         } catch (error) {
             return thunkAPI.rejectWithValue('something went wrong');
@@ -57,6 +68,18 @@ const CheckOutSlice = createSlice({
                 state.isLoading = false
             })
             .addCase(MakeOrderCash.rejected, (state, action) => {
+                state.isLoading = false
+                state.error = action
+            })
+            // checkOut Order Visa
+            .addCase(MakeOrderVisa.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(MakeOrderVisa.fulfilled, (state, action) => {
+                state.checkOut = action.payload
+                state.isLoading = false
+            })
+            .addCase(MakeOrderVisa.rejected, (state, action) => {
                 state.isLoading = false
                 state.error = action
             })

@@ -1,17 +1,14 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Alladress, GetSpecificeAddresss } from "../../reduxTool/AddressSlice"
 import { useEffect, useState } from "react"
-import { ApplyCouponOnProduct, MakeOrderCash } from "../../reduxTool/CheckOutslice"
+import { ApplyCouponOnProduct, MakeOrderCash, MakeOrderVisa } from "../../reduxTool/CheckOutslice"
 import toast from "react-hot-toast"
-// import { useNavigate } from "react-router-dom"
-// import { useHistory } from 'react-router-dom';
 import { GetUserCart } from "../../reduxTool/CartSlice"
 import { useNavigate } from "react-router-dom"
 
 const CheckoutOrderhook = (id) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    // const history = useHistory();
 
     const [openOrders, setOpenOrder] = useState(false)
 
@@ -26,6 +23,7 @@ const CheckoutOrderhook = (id) => {
     const [loadingCoupon, setLoadingCoupon] = useState(true)
     const [lod, setLod] = useState(true);
     const [lodCheck, setLodCheck] = useState(true);
+    const [lodCheckVisa, setLodCheckVisa] = useState(true);
     const [city, setAlias] = useState("");
     const [phone, setPhone] = useState("");
     const [details, setDetails] = useState("");
@@ -97,23 +95,46 @@ const CheckoutOrderhook = (id) => {
     }, [loadingCoupon])
 
 
+
+
+
     const BuyNow = async () => {
         if (location === "") {
             toast.error('Choose location')
         } else {
             if (deliveryMethod !== "") {
-                setLodCheck(true)
-                await dispatch(MakeOrderCash({
-                    id,
-                    datails: {
-                        shippingAddress: {
-                            details,
-                            phone,
-                            city,
-                        },
-                    }
-                }))
-                setLodCheck(false)
+                setLodCheckVisa(false)
+                if (deliveryMethod === "Cash") {
+                    console.log(deliveryMethod);
+
+                    setLodCheck(true)
+                    await dispatch(MakeOrderCash({
+                        id,
+                        datails: {
+                            shippingAddress: {
+                                details,
+                                phone,
+                                city,
+                            },
+                        }
+                    }))
+                    setLodCheck(false)
+                } else {
+                    console.log(deliveryMethod);
+                    setLodCheckVisa(true)
+                    await dispatch(MakeOrderVisa({
+                        id,
+                        datails: {
+                            shippingAddress: {
+                                details,
+                                phone,
+                                city,
+                            },
+                        }
+                    }))
+                    setLodCheckVisa(false)
+                }
+
             } else {
                 toast.error('Choose Delivery method')
             }
@@ -126,10 +147,12 @@ const CheckoutOrderhook = (id) => {
 
 
     useEffect(() => {
-        if (!lodCheck) {
-            if (!loadingCheckout) {
+        if (!lodCheck, !lodCheckVisa) {
+            if (checkOut) {
                 if (checkOut.length !== 0) {
                     if (checkOut.status === "success") {
+                        // console.log(checkOut);
+                        window.open(checkOut.session.url)
                         setOpenOrder(false)
                         toast.success('order has been created successfully');
                     } else {
@@ -138,19 +161,18 @@ const CheckoutOrderhook = (id) => {
                 }
             }
         }
-    }, [lodCheck])
-
+    }, [lodCheck, lodCheckVisa])
 
     useEffect(() => {
         if (!lodCheck) {
-            if (checkOut.status === "success") {
-                setTimeout(() => {
-                    GetUserCartProduct()
-                }, 100)
-                setTimeout(() => {
-                    navigate("/user/order")
-                }, 1500)
-            }
+            // if (checkOut.status === "success") {
+            //     setTimeout(() => {
+            //         GetUserCartProduct()
+            //     }, 100)
+            //     setTimeout(() => {
+            //         navigate("/user/order")
+            //     }, 1500)
+            // }
         }
     }, [lodCheck])
 

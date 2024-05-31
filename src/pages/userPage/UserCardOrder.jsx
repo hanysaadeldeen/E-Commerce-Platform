@@ -41,6 +41,9 @@ const UserCardOrder = ({ info }) => {
                     })
                 }
             </div>
+            {
+                console.log(info.paymentMethodType)
+            }
             <div className="flex gap-3 flex-wrap justify-between max-sm:justify-center items-center font-semibold  pb-2 px-3">
                 <h1 className="">Total-Price: {info.totalOrderPrice}</h1>
                 <h1 className="">IsDelivered: {!info.isDelivered ? "No" : "Yes"}</h1>

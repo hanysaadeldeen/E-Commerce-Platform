@@ -144,7 +144,7 @@ const CartProductInfo = ({ Allproduct, DeleteUserAllCart, price }) => {
 
                                 <div className="checkbox-wrapper-15 mt-4">
                                     <div className="border py-3 px-4  mb-3  rounded-md">
-                                        <input className="inp-cbx hidden" onChange={() => setDeliveryMethod("Cash")} id="visa" name="payment" type="radio" />
+                                        <input className="inp-cbx hidden" onChange={() => setDeliveryMethod("visa")} id="visa" name="payment" type="radio" />
                                         <label className="cbx" htmlFor="visa">
                                             <span>
                                                 <svg width="12px" height="9px" viewBox="0 0 12 9">س
@@ -155,7 +155,7 @@ const CartProductInfo = ({ Allproduct, DeleteUserAllCart, price }) => {
                                         </label>
                                     </div>
                                     <div className="border py-3 px-4  mb-5  rounded-md">
-                                        <input className="inp-cbx hidden" onChange={() => setDeliveryMethod("visa")} id="Cash" name="payment" type="radio" />
+                                        <input className="inp-cbx hidden" onChange={() => setDeliveryMethod("Cash")} id="Cash" name="payment" type="radio" />
                                         <label className="cbx" htmlFor="Cash">
                                             <span>
                                                 <svg width="12px" height="9px" viewBox="0 0 12 9">
