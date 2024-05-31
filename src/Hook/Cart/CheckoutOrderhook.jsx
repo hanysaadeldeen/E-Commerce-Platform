@@ -103,38 +103,49 @@ const CheckoutOrderhook = (id) => {
             toast.error('Choose location')
         } else {
             if (deliveryMethod !== "") {
+                // setLodCheckVisa(false)
+                // if (deliveryMethod === "Cash") {
+                //     console.log(deliveryMethod);
+                //     setLodCheck(true)
+                //     await dispatch(MakeOrderCash({
+                //         id,
+                //         datails: {
+                //             shippingAddress: {
+                //                 details,
+                //                 phone,
+                //                 city,
+                //             },
+                //         }
+                //     }))
+                //     setLodCheck(false)
+                // } else {
+                //     console.log(deliveryMethod);
+                //     setLodCheckVisa(true)
+                //     await dispatch(MakeOrderVisa({
+                //         id,
+                //         datails: {
+                //             shippingAddress: {
+                //                 details,
+                //                 phone,
+                //                 city,
+                //             },
+                //         }
+                //     }))
+                //     setLodCheckVisa(false)
+                // }
+
+                setLodCheckVisa(true)
+                await dispatch(MakeOrderVisa({
+                    id,
+                    datails: {
+                        shippingAddress: {
+                            details,
+                            phone,
+                            city,
+                        },
+                    }
+                }))
                 setLodCheckVisa(false)
-                if (deliveryMethod === "Cash") {
-                    console.log(deliveryMethod);
-
-                    setLodCheck(true)
-                    await dispatch(MakeOrderCash({
-                        id,
-                        datails: {
-                            shippingAddress: {
-                                details,
-                                phone,
-                                city,
-                            },
-                        }
-                    }))
-                    setLodCheck(false)
-                } else {
-                    console.log(deliveryMethod);
-                    setLodCheckVisa(true)
-                    await dispatch(MakeOrderVisa({
-                        id,
-                        datails: {
-                            shippingAddress: {
-                                details,
-                                phone,
-                                city,
-                            },
-                        }
-                    }))
-                    setLodCheckVisa(false)
-                }
-
             } else {
                 toast.error('Choose Delivery method')
             }
