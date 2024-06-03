@@ -34,4 +34,5 @@ export const store = configureStore({
         getDefaultMiddleware({
             serializableCheck: false
         }),
+    devTools: false
 });

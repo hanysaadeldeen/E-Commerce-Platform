@@ -13,7 +13,6 @@ const CheckoutOrderhook = (id) => {
     const [openOrders, setOpenOrder] = useState(false)
 
     const { Address, SpecificAddress } = useSelector((state) => state.Address)
-    const loadingCheckout = useSelector((state) => state.checkout.isLoading)
     const checkOut = useSelector((state) => state.checkout.checkOut)
     const coupones = useSelector((state) => state.checkout.coupon)
     const { error } = useSelector((state) => state.checkout)
@@ -103,49 +102,34 @@ const CheckoutOrderhook = (id) => {
             toast.error('Choose location')
         } else {
             if (deliveryMethod !== "") {
-                // setLodCheckVisa(false)
-                // if (deliveryMethod === "Cash") {
-                //     console.log(deliveryMethod);
-                //     setLodCheck(true)
-                //     await dispatch(MakeOrderCash({
-                //         id,
-                //         datails: {
-                //             shippingAddress: {
-                //                 details,
-                //                 phone,
-                //                 city,
-                //             },
-                //         }
-                //     }))
-                //     setLodCheck(false)
-                // } else {
-                //     console.log(deliveryMethod);
-                //     setLodCheckVisa(true)
-                //     await dispatch(MakeOrderVisa({
-                //         id,
-                //         datails: {
-                //             shippingAddress: {
-                //                 details,
-                //                 phone,
-                //                 city,
-                //             },
-                //         }
-                //     }))
-                //     setLodCheckVisa(false)
-                // }
-
-                setLodCheckVisa(true)
-                await dispatch(MakeOrderVisa({
-                    id,
-                    datails: {
-                        shippingAddress: {
-                            details,
-                            phone,
-                            city,
-                        },
-                    }
-                }))
                 setLodCheckVisa(false)
+                if (deliveryMethod === "Cash") {
+                    setLodCheck(true)
+                    await dispatch(MakeOrderCash({
+                        id,
+                        datails: {
+                            shippingAddress: {
+                                details,
+                                phone,
+                                city,
+                            },
+                        }
+                    }))
+                    setLodCheck(false)
+                } else {
+                    setLodCheckVisa(true)
+                    await dispatch(MakeOrderVisa({
+                        id,
+                        datails: {
+                            shippingAddress: {
+                                details,
+                                phone,
+                                city,
+                            },
+                        }
+                    }))
+                    setLodCheckVisa(false)
+                }
             } else {
                 toast.error('Choose Delivery method')
             }
@@ -162,8 +146,10 @@ const CheckoutOrderhook = (id) => {
             if (checkOut) {
                 if (checkOut.length !== 0) {
                     if (checkOut.status === "success") {
-                        // console.log(checkOut);
-                        window.open(checkOut.session.url)
+                        if (deliveryMethod === "visa") {
+                            window.open(checkOut.session.url)
+
+                        }
                         setOpenOrder(false)
                         toast.success('order has been created successfully');
                     } else {
@@ -176,14 +162,17 @@ const CheckoutOrderhook = (id) => {
 
     useEffect(() => {
         if (!lodCheck) {
-            // if (checkOut.status === "success") {
-            //     setTimeout(() => {
-            //         GetUserCartProduct()
-            //     }, 100)
-            //     setTimeout(() => {
-            //         navigate("/user/order")
-            //     }, 1500)
-            // }
+            if (checkOut.status === "success") {
+                setTimeout(() => {
+                    GetUserCartProduct()
+                }, 100)
+
+                if (deliveryMethod === "Cash") {
+                    setTimeout(() => {
+                        navigate("/user/order")
+                    }, 1500)
+                }
+            }
         }
     }, [lodCheck])
 
