@@ -46,7 +46,7 @@ const ContactPage = () => {
                                 <a href="http://wa.me/+201093720956" title="our whatsApp ">
                                     <FontAwesomeIcon icon={faWhatsapp} className="text-4xl text-green-500" />
                                 </a>
-                                <a href="mailto:saaddeenhany@gmail.com" title="our gmail">
+                                <a href="mailto:hanymohamedsaadeldean@gmail.com" title="our gmail">
                                     <FontAwesomeIcon icon={faEnvelope} className="text-4xl text-[#3e65cf]" />
                                 </a>
                             </div>
